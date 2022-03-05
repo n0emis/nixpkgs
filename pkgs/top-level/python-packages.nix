@@ -5142,6 +5142,8 @@ in {
 
   mkdocs = callPackage ../development/python-modules/mkdocs { };
 
+  mkdocs-material = callPackage ../development/python-modules/mkdocs-material { };
+
   mkdocs-material-extensions = callPackage ../development/python-modules/mkdocs-material-extensions { };
 
   mkl-service = callPackage ../development/python-modules/mkl-service { };
