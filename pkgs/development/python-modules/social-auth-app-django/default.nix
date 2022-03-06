@@ -1,4 +1,4 @@
-{ lib, buildPythonPackage, fetchFromGitHub,, social-auth-core, django, python }:
+{ lib, buildPythonPackage, fetchFromGitHub, social-auth-core, django, python }:
 
 buildPythonPackage rec {
   pname = "social-auth-app-django";
