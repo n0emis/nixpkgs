@@ -1,10 +1,11 @@
 diff --git a/MANIFEST.in b/MANIFEST.in
-index e583c89..81382e6 100644
+index e583c89..b6608ad 100644
 --- a/MANIFEST.in
 +++ b/MANIFEST.in
 @@ -1,4 +1,4 @@
 -global-include *.py
+-include *.txt CHANGELOG.md LICENSE README.md
 +global-include *.py *.html
- include *.txt CHANGELOG.md LICENSE README.md
++include *.txt CHANGELOG.md LICENSE README.md tests/templates/test.html
  recursive-exclude social_django *.pyc
  exclude .tox .git
