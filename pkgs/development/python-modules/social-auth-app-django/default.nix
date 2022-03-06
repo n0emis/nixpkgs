@@ -18,6 +18,8 @@ buildPythonPackage rec {
   ];
 
   checkPhase = ''
+    pwd
+    sleep 500
     ${python.interpreter} -m django test --settings="tests.settings"
   '';
 
