@@ -9,3 +9,15 @@ index e583c89..b6608ad 100644
 +include *.txt CHANGELOG.md LICENSE README.md tests/templates/test.html
  recursive-exclude social_django *.pyc
  exclude .tox .git
+diff --git a/setup.py b/setup.py
+index 9d3a2f4..799f1ed 100644
+--- a/setup.py
++++ b/setup.py
+@@ -41,6 +41,7 @@ setup(
+     long_description=long_description(),
+     long_description_content_type='text/markdown',
+     python_requires='>=3.6',
++    include_package_data=True,
+     install_requires=load_requirements(),
+     classifiers=[
+         'Development Status :: 4 - Beta',
