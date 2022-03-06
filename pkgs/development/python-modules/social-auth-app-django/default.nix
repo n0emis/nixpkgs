@@ -23,6 +23,7 @@ buildPythonPackage rec {
   ];
 
   checkPhase = ''
+    cat ./MANIFEST.in
     find
     ${python.interpreter} -m django test --settings="tests.settings"
   '';
