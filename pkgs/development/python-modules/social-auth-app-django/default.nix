@@ -8,7 +8,7 @@ buildPythonPackage rec {
     owner = "python-social-auth";
     repo = "social-app-django";
     rev = version;
-    sha256 = "b6e3132ce087cdd6e1707aeb1b588be41d318408fcf6395435da0bc6fe9a9798";
+    sha256 = "sha256-ONhdXxclHRpVtijpKEZlmGDhjid/jnTaPq6LQtjxCC4=";
   };
 
   propagatedBuildInputs = [
