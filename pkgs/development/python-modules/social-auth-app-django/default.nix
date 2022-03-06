@@ -1,21 +1,18 @@
-{ lib, buildPythonPackage, fetchPypi, social-auth-core, django, python }:
+{ lib, buildPythonPackage, fetchFromGitHub,, social-auth-core, django, python }:
 
 buildPythonPackage rec {
   pname = "social-auth-app-django";
   version = "5.0.0";
 
-  src = fetchPypi {
-    inherit pname version;
-    sha256 = "b6e3132ce087cdd6e1707aeb1b588be41d318408fcf6395435da0bc6fe9a9795";
+  src = fetchFromGitHub {
+    owner = "python-social-auth";
+    repo = "social-app-django";
+    rev = version;
+    sha256 = "b6e3132ce087cdd6e1707aeb1b588be41d318408fcf6395435da0bc6fe9a9798";
   };
 
   propagatedBuildInputs = [
     social-auth-core
-  ];
-
-  patches = [
-    # Include .html-files in the built package
-    ./manifest.patch
   ];
 
   checkInputs = [
@@ -23,7 +20,6 @@ buildPythonPackage rec {
   ];
 
   checkPhase = ''
-    cat ./MANIFEST.in
     find
     ${python.interpreter} -m django test --settings="tests.settings"
   '';
