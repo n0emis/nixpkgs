@@ -13,12 +13,16 @@ buildPythonPackage rec {
     social-auth-core
   ];
 
+  patches = [
+    # Include .html-files in the built package
+    ./manifest.patch
+  ];
+
   checkInputs = [
     django
   ];
 
   checkPhase = ''
-    pwd
     find
     ${python.interpreter} -m django test --settings="tests.settings"
   '';
