@@ -19,6 +19,14 @@ let
           sha256 = "1mwwh55qd5bcpvgy6pyliwn8jkmj4yk4d2pqb6mdkgqhdic2081l";
         };
       });
+      graphql-relay = super.graphql-relay.overridePythonAttrs (old: rec {
+        version = "3.1.5";
+        src = self.fetchPypi {
+          pname = old.pname;
+          inherit version;
+          hash = "sha256-En9AkT8Ry4R0Uu95STEmGq47Ii6q+Xb3yEMCmFNOVNM=";
+        };
+      });
       jsonschema = super.jsonschema.overridePythonAttrs (old: rec {
         version = "3.2.0";
         src = self.fetchPypi {
@@ -43,13 +51,13 @@ let
 in
 py.pkgs.buildPythonApplication rec {
     pname = "netbox";
-    version = "3.1.10";
+    version = "3.2.1";
 
     src = fetchFromGitHub {
       owner = "netbox-community";
       repo = pname;
       rev = "v${version}";
-      sha256 = "sha256-qREq4FJHHTA9Vm6f9kSfiYqur2omFmdsoZ4OdaPFcpU=";
+      sha256 = "sha256-iA0KIgaHQh0OsN/tXmTATIlvnf0aLRdjeQ6VkiR9VJ4=";
     };
 
     format = "other";
