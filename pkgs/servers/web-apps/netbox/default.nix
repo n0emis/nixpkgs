@@ -26,19 +26,19 @@ let
           sha256 = "6e84edecc3a82f90d44ddee2ee2a2630d4994b8471816e226d2b771cda7ac4ca";
         };
       });
-      werkzeug = super.werkzeug.overridePythonAttrs (old: rec {
-        version = "2.0.3";
-        src = self.fetchPypi {
-          pname = "Werkzeug";
-          inherit version;
-          sha256 = "sha256-uGP4/wV8UiFktgZ8niiwQRYbS+W6TQ2s7qpQoWOCLTw=";
-        };
-      });
-      sentry-sdk = super.sentry-sdk.overridePythonAttrs (old: rec {
-        disabledTestPaths = old.disabledTestPaths ++ [
-          "tests/integrations/flask/test_flask.py"
-        ];
-      });
+      #werkzeug = super.werkzeug.overridePythonAttrs (old: rec {
+      #  version = "2.0.3";
+      #  src = self.fetchPypi {
+      #    pname = "Werkzeug";
+      #    inherit version;
+      #    sha256 = "sha256-uGP4/wV8UiFktgZ8niiwQRYbS+W6TQ2s7qpQoWOCLTw=";
+      #  };
+      #});
+      #sentry-sdk = super.sentry-sdk.overridePythonAttrs (old: rec {
+      #  disabledTestPaths = old.disabledTestPaths ++ [
+      #    "tests/integrations/flask/test_flask.py"
+      #  ];
+      #});
     };
   };
 
@@ -46,13 +46,13 @@ let
 in
 py.pkgs.buildPythonApplication rec {
     pname = "netbox";
-    version = "3.2.1";
+    version = "3.2.3";
 
     src = fetchFromGitHub {
       owner = "netbox-community";
       repo = pname;
       rev = "v${version}";
-      sha256 = "sha256-iA0KIgaHQh0OsN/tXmTATIlvnf0aLRdjeQ6VkiR9VJ4=";
+      sha256 = "sha256-mMTZKlGVjFPGJI4Ky+V3lPuMYS7tJb+zeDEzMeXdGoU=";
     };
 
     format = "other";
@@ -89,6 +89,7 @@ py.pkgs.buildPythonApplication rec {
       pillow
       psycopg2
       pyyaml
+      sentry-sdk
       social-auth-core
       social-auth-app-django
       svgwrite
