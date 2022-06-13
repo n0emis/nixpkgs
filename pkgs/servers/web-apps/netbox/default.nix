@@ -17,13 +17,13 @@ let
 in
 py.pkgs.buildPythonApplication rec {
     pname = "netbox";
-    version = "3.2.1";
+    version = "3.2.4";
 
     src = fetchFromGitHub {
       owner = "netbox-community";
       repo = pname;
       rev = "v${version}";
-      sha256 = "sha256-iA0KIgaHQh0OsN/tXmTATIlvnf0aLRdjeQ6VkiR9VJ4=";
+      sha256 = "sha256-MNxayBELvyr8gJMo+COO1yXI4PG6awa3A7hhi/54Oa0=";
     };
 
     format = "other";
@@ -35,7 +35,7 @@ py.pkgs.buildPythonApplication rec {
     ];
 
     propagatedBuildInputs = with py.pkgs; [
-      django_4
+      django
       django-cors-headers
       django-debug-toolbar
       django-filter
@@ -60,7 +60,9 @@ py.pkgs.buildPythonApplication rec {
       pillow
       psycopg2
       pyyaml
+      sentry-sdk
       social-auth-core
+      social-auth-core.optional-dependencies.openidconnect
       social-auth-app-django
       svgwrite
       tablib
