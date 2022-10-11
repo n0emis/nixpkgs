@@ -9,7 +9,14 @@
 let
   py = python3.override {
     packageOverrides = self: super: {
-      django = super.django_4;
+      django = super.django_4.overridePythonAttrs (old: rec {
+        version = "4.0.8";
+        src = self.fetchPypi {
+          pname = old.pname;
+          inherit version;
+          sha256 = "07e6433f263c3839939cfabeb6d7557841e0419e47759a7b7d37f6d44d40adcb";
+        };
+      });
     };
   };
 
