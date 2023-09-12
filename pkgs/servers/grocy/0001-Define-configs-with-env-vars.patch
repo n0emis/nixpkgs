@@ -1,4 +1,4 @@
-From 231ee836e357b83cc2fc0a3a977f74839308ec68 Mon Sep 17 00:00:00 2001
+From d086a9a8ee9aac22d6be419d0acb683ffced962d Mon Sep 17 00:00:00 2001
 From: Ember Keske <git@n0emis.eu>
 Date: Wed, 2 Aug 2023 06:36:02 +0200
 Subject: [PATCH 1/2] Define configs with env vars
@@ -67,10 +67,10 @@ index 7d070350..a6dd4b08 100644
  		{
  			mkdir($this->StoragePath);
 diff --git a/services/StockService.php b/services/StockService.php
-index 7265e82b..13af591a 100644
+index a993c4d5..62409778 100644
 --- a/services/StockService.php
 +++ b/services/StockService.php
-@@ -1761,7 +1761,7 @@ class StockService extends BaseService
+@@ -1719,7 +1719,7 @@ class StockService extends BaseService
  			throw new \Exception('No barcode lookup plugin defined');
  		}
  
@@ -80,5 +80,5 @@ index 7265e82b..13af591a 100644
  		if (file_exists($path))
  		{
 -- 
-2.41.0
+2.42.0
 
